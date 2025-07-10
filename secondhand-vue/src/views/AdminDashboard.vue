@@ -46,7 +46,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
-
+const API = import.meta.env.VITE_API_BASE
 const isAlive = ref(false)
 
 // Heartbeat
@@ -67,8 +67,6 @@ onMounted(() => {
 
 const users = ref([])
 const loading = ref(true)
-
-const API = import.meta.env.VITE_API_BASE
 
 const fetchUsers = async () => {
   try {
@@ -101,7 +99,7 @@ const deleteUser = async (id) => {
 const updateUser = async (user) => {
   try {
     const res = await axios.put(`${API}/admin/users/${user._id}`, {
-      phone: user.phone,
+      email: user.email,
     })
     alert('User updated!')
   } catch (err) {
