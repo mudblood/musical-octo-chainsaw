@@ -38,13 +38,18 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Product schema
-const itemSchema = new mongoose.Schema({
-  imageUrl: String,
-  styleTag: String, // e.g., 'cowboy'
-  altText: String,  // for screen readers
-})
-const Item = mongoose.model('Item', itemSchema)
+// Serve listing photo
+const listingsRoute = require('./routes/listings')
+app.use('/listings', listingsRoute)
+
+
+const path = require('path')
+
+// ✅ Public static files (image URLs)
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
+
+// 🚫 Do NOT expose temp to the web
+// app.use('/temp', express.static(path.join(__dirname, 'temp')))
 
 // Check email
 app.post('/check-email', async (req, res) => {
@@ -85,16 +90,18 @@ app.listen(3000, '0.0.0.0', () => {
 });
 
 // Personalized feed
+const Listing = require('./models/listing') // wherever your model is
+
 app.get('/feed/:userId', async (req, res) => {
   try {
     const user = await User.findById(req.params.userId)
     if (!user) return res.status(404).json({ message: 'User not found' })
 
-    const items = await Item.find({
+    const listings = await Listing.find({
       styleTag: { $in: user.stylePreferences },
     })
 
-    res.json(items)
+    res.json(listings)
   } catch (err) {
     console.error('Feed error:', err)
     res.status(500).json({ message: 'Server error' })
