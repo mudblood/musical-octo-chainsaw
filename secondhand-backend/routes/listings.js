@@ -9,6 +9,17 @@ const sharp = require('sharp')
 const Listing = require('../models/listing')
 const router = express.Router()
 
+// Public feed route
+router.get('/', async (req, res) => {
+  try {
+    const listings = await Listing.find().sort({ createdAt: -1 }).limit(100)
+    res.json(listings)
+  } catch (err) {
+    console.error('Failed to get feed listings:', err)
+    res.status(500).json({ error: 'Failed to fetch listings' })
+  }
+})
+
 // Save raw uploads temporarily to /temp folder
 const tempStorage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, 'temp/'),
