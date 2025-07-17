@@ -1,3 +1,4 @@
+console.log('🔗 API base is:', API)
 <template>
   <div class="max-w-3xl mx-auto mt-10">
 	<div class="flex items-center mb-4">
@@ -41,13 +42,50 @@
 </div>
 
   </div>
+  <div class="p-4">
+    <h2 class="text-2xl font-bold mb-4">Admin Dashboard – Listings</h2>
+    <table class="w-full table-auto border border-gray-300">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="p-2">Image</th>
+          <th class="p-2">Description</th>
+          <th class="p-2">Price</th>
+          <th class="p-2">Created</th>
+          <th class="p-2"># Images</th>
+          <th class="p-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="listing in listings" :key="listing._id" class="border-t">
+          <td class="p-2">
+            <img
+              :src="`${API}${listing.photos[0]}`"
+              alt="thumb"
+              class="w-20 h-20 object-cover"
+            />
+          </td>
+          <td class="p-2">{{ listing.description }}</td>
+          <td class="p-2">${{ listing.price ?? '—' }}</td>
+          <td class="p-2 text-sm text-gray-600">{{ new Date(listing.createdAt).toLocaleString() }}</td>
+          <td class="p-2">{{ listing.photos.length }}</td>
+          <td class="p-2">
+            <button
+              class="text-red-600 hover:underline"
+              @click="deleteListing(listing._id)"
+            >Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
-
+const API = import.meta.env.VITE_API_BASE
 const isAlive = ref(false)
+const listings = ref([])
 
 // Heartbeat
 const checkBackend = async () => {
@@ -67,8 +105,6 @@ onMounted(() => {
 
 const users = ref([])
 const loading = ref(true)
-
-const API = import.meta.env.VITE_API_BASE
 
 const fetchUsers = async () => {
   try {
@@ -101,7 +137,7 @@ const deleteUser = async (id) => {
 const updateUser = async (user) => {
   try {
     const res = await axios.put(`${API}/admin/users/${user._id}`, {
-      phone: user.phone,
+      email: user.email,
     })
     alert('User updated!')
   } catch (err) {
@@ -109,5 +145,26 @@ const updateUser = async (user) => {
   }
 }
 
+const fetchListings = async () => {
+  try {
+    const res = await axios.get(`${API}/listings/admin/listings`)
+    console.log('📦 Listings from backend:', res.data)
+    listings.value = res.data
+  } catch (err) {
+    console.error('Failed to fetch listings:', err)
+  }
+}
+
+const deleteListing = async (id) => {
+  if (!confirm('Are you sure you want to delete this listing?')) return
+  try {
+    await axios.delete(`${API}/listings/admin/listings/${id}`)
+    listings.value = listings.value.filter(l => l._id !== id)
+  } catch (err) {
+    console.error('Delete failed:', err)
+  }
+}
+
+onMounted(fetchListings)
 onMounted(fetchUsers)
 </script>
