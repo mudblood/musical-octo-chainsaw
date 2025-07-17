@@ -110,6 +110,7 @@ app.get('/feed/:userId', async (req, res) => {
 
 // GET /admin/users – Get all users
 app.get('/admin/users', async (req, res) => {
+console.log('📥 Admin listings endpoint hit')
   try {
     // TODO: Secure this route with a token check
     const users = await User.find({}, { password: 0 }) // exclude passwords
