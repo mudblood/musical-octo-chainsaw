@@ -6,10 +6,28 @@ const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const app = express();
 
+
 // CORS (cross-origin resource sharing) settings
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://47.84.42.252'
+];
+
+// Allow 192.168.*, 172.*, 10.* IPs (local network/devices)
+function isLocalNetwork(origin) {
+  return /^http:\/\/(192\.168\.|172\.|10\.)/.test(origin);
+}
 
 const corsOptions = {
-  origin: 'http://localhost:5173', // allow your frontend
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin || allowedOrigins.includes(origin) || isLocalNetwork(origin)) {
+      callback(null, true);
+    } else {
+      console.log('❌ Blocked by CORS:', origin)
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 };

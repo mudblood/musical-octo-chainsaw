@@ -90,3 +90,180 @@ API server running on http://0.0.0.0:3000
 (Use `node --trace-warnings ...` to show where the warning was created)
 (node:108696) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
 API server running on http://0.0.0.0:3000
+✅ index.js is running
+✅ listings.js route loaded
+(node:116600) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:116600) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+API server running on http://0.0.0.0:3000
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+📥 Admin listings endpoint hit
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+Error: Not allowed by CORS
+    at origin (/root/musical-octo-chainsaw/secondhand-backend/index.js:22:16)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/root/musical-octo-chainsaw/secondhand-backend/node_modules/cors/lib/index.js:204:7)
+    at Layer.handleRequest (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:342:13)
+    at /root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:297:9
+    at processParams (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:582:12)
+    at next (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:291:5)
+    at Function.handle (/root/musical-octo-chainsaw/secondhand-backend/node_modules/router/index.js:186:3)
+✅ index.js is running
+✅ listings.js route loaded
+(node:129368) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:129368) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+API server running on http://0.0.0.0:3000
+📥 Admin listings endpoint hit
+📥 Admin listings endpoint hit
+📥 Admin listings endpoint hit
+📥 Admin listings endpoint hit
+📥 Admin listings endpoint hit
+📥 Admin listings endpoint hit
+📥 Admin listings endpoint hit
+📥 Admin listings endpoint hit
+📥 Admin listings endpoint hit
+📥 Admin listings endpoint hit
