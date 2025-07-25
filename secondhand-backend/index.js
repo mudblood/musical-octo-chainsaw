@@ -4,8 +4,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
+const path = require('path')
 const app = express();
 
+// Increase limits for JSON and form-data
+app.use(express.json({ limit: '20mb' }))
+app.use(express.urlencoded({ extended: true, limit: '20mb' }))
 
 // CORS (cross-origin resource sharing) settings
 const allowedOrigins = [
@@ -39,8 +43,6 @@ app.get('/ping', (req, res) => {
   res.json({ status: 'ok' })
 })
 
-app.use(express.json());
-
 // Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/secondhand', {
   useNewUrlParser: true,
@@ -59,9 +61,6 @@ const User = mongoose.model('User', userSchema);
 // Serve listing photo
 const listingsRoute = require('./routes/listings')
 app.use('/listings', listingsRoute)
-
-
-const path = require('path')
 
 // ✅ Public static files (image URLs)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))

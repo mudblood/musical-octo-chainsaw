@@ -33,7 +33,7 @@ const upload = multer({ storage: tempStorage })
 // POST /listings - Upload up to 24 images and save listing
 router.post('/', upload.array('photos', 24), async (req, res) => {
   try {
-    const { message } = req.body
+    const { description } = req.body
     const photos = []
 
     for (const file of req.files) {
@@ -58,19 +58,14 @@ router.post('/', upload.array('photos', 24), async (req, res) => {
       photos.push(`/uploads/${outputName}`)
     }
 
-    // Extract price and description
-    const priceMatch = message.match(/\$\s*([\d.]+)/)
-    const price = priceMatch ? parseFloat(priceMatch[1]) : null
-    const description = message.replace(/\$\s*[\d.]+/, '').trim()
+const desc = description.trim()
 
-    // Save listing to DB
-    const listing = new Listing({
-      photos,
-      description,
-      price,
-      altText: description,
-      createdAt: new Date(),
-    })
+const listing = new Listing({
+  photos,
+  description: desc,
+  altText: desc,
+  createdAt: new Date(),
+})
 
     await listing.save()
     res.json({ success: true, listing })
