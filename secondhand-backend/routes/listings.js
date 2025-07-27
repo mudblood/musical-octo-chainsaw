@@ -47,6 +47,7 @@ router.post('/', upload.array('photos', 24), async (req, res) => {
 
       // Convert + compress
       await sharp(inputPath)
+        .rotate() // auto-correct orientation using exif
         .resize({ width: 1024 }) // optional resize
         .jpeg({ quality: 70 })
         .toFile(outputPath)

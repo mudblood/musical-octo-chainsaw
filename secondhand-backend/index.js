@@ -12,30 +12,47 @@ app.use(express.json({ limit: '20mb' }))
 app.use(express.urlencoded({ extended: true, limit: '20mb' }))
 
 // CORS (cross-origin resource sharing) settings
+// ✅ 1️⃣ List the domains you trust (production + dev)
 const allowedOrigins = [
-  'http://localhost:5173',
-  'http://47.84.42.252'
+  'http://localhost:5173',   // Vue dev server
+  'http://47.84.42.252',     // Your server by IP
+  'http://sstuf.com',        // Your domain (HTTP)
+  'https://sstuf.com'        // Your domain (HTTPS, future-proof)
 ];
 
-// Allow 192.168.*, 172.*, 10.* IPs (local network/devices)
+// ✅ 2️⃣ Helper to allow devices on your LAN (Wi‑Fi testing)
 function isLocalNetwork(origin) {
   return /^http:\/\/(192\.168\.|172\.|10\.)/.test(origin);
 }
 
+// ✅ 3️⃣ Build the CORS options
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl)
-    if (!origin || allowedOrigins.includes(origin) || isLocalNetwork(origin)) {
-      callback(null, true);
-    } else {
-      console.log('❌ Blocked by CORS:', origin)
-      callback(new Error('Not allowed by CORS'));
+    // ✅ (a) Allow tools like curl, Postman, mobile apps (they have no `origin`)
+    if (!origin) {
+      return callback(null, true);
     }
+
+    // ✅ (b) Allow domains explicitly listed or LAN devices
+    if (allowedOrigins.includes(origin) || isLocalNetwork(origin)) {
+      return callback(null, true);
+    }
+
+    // ✅ (c) Allow *any* subdomain of sstuf.com (e.g. api.sstuf.com, beta.sstuf.com)
+    if (/^https?:\/\/([a-z0-9-]+\.)*sstuf\.com$/.test(origin)) {
+      return callback(null, true);
+    }
+
+    // 🚫 (d) If none of the above match → reject request
+    console.log('❌ Blocked by CORS:', origin);
+    return callback(new Error('Not allowed by CORS'));
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
+
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // ✅ Only allow these HTTP verbs
+  credentials: true                           // ✅ Allow cookies/authorization headers
 };
 
+// ✅ 4️⃣ Apply to your Express app
 app.use(cors(corsOptions));
 
 // Get heartbeat
