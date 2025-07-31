@@ -168,3 +168,11 @@ const deleteListing = async (id) => {
 onMounted(fetchListings)
 onMounted(fetchUsers)
 </script>
+<style scoped>
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+</style>
