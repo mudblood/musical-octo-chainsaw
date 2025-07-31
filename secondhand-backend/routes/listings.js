@@ -30,10 +30,11 @@ const tempStorage = multer.diskStorage({
 })
 const upload = multer({ storage: tempStorage })
 
+
 // POST /listings - Upload up to 24 images and save listing
 router.post('/', upload.array('photos', 24), async (req, res) => {
   try {
-    const { description } = req.body
+    const { description, price } = req.body   // ✅ now capturing price from body
     const photos = []
 
     for (const file of req.files) {
@@ -48,25 +49,26 @@ router.post('/', upload.array('photos', 24), async (req, res) => {
       // Convert + compress
       await sharp(inputPath)
         .rotate() // auto-correct orientation using exif
-        .resize({ width: 1024 }) // optional resize
+        .resize({ width: 1024 }) // optional resize for performance
         .jpeg({ quality: 70 })
         .toFile(outputPath)
-     
+
       // Clean up temp file
       fs.unlinkSync(inputPath)
 
-      // Save relative path for frotnend
+      // Save relative path for frontend
       photos.push(`/uploads/${outputName}`)
     }
 
-const desc = description.trim()
+    const desc = description.trim()
 
-const listing = new Listing({
-  photos,
-  description: desc,
-  altText: desc,
-  createdAt: new Date(),
-})
+    const listing = new Listing({
+      photos,
+      description: desc,
+      altText: desc,
+      price: price ? parseFloat(price) : null,   // ✅ handle price or null
+      createdAt: new Date(),
+    })
 
     await listing.save()
     res.json({ success: true, listing })

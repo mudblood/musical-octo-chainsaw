@@ -15,9 +15,12 @@ app.use(express.urlencoded({ extended: true, limit: '20mb' }))
 // ✅ 1️⃣ List the domains you trust (production + dev)
 const allowedOrigins = [
   'http://localhost:5173',   // Vue dev server
+  'http://localhost:4174',   // dashbaord dev server
   'http://47.84.42.252',     // Your server by IP
   'http://sstuf.com',        // Your domain (HTTP)
-  'https://sstuf.com'        // Your domain (HTTPS, future-proof)
+  'https://sstuf.com',       // Your domain (HTTPS, future-proof)
+  'http://dash.sstuf.com',   // Admin dashboard
+  'https://dash.sstuf.com'   // Admin dashboard
 ];
 
 // ✅ 2️⃣ Helper to allow devices on your LAN (Wi‑Fi testing)
@@ -30,6 +33,11 @@ const corsOptions = {
   origin: function (origin, callback) {
     // ✅ (a) Allow tools like curl, Postman, mobile apps (they have no `origin`)
     if (!origin) {
+      return callback(null, true);
+    }
+
+    // ✅ Allow all localhost ports during dev
+    if (origin.startsWith('http://localhost')) {
       return callback(null, true);
     }
 
@@ -64,6 +72,14 @@ app.get('/ping', (req, res) => {
 mongoose.connect('mongodb://127.0.0.1:27017/secondhand', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+});
+
+mongoose.connection.on('connected', () => {
+  console.log('✅ MongoDB connected');
+});
+
+mongoose.connection.on('error', (err) => {
+  console.error('❌ MongoDB error:', err);
 });
 
 // User schema
@@ -119,8 +135,8 @@ app.post('/login', async (req, res) => {
   res.json({ message: 'Login successful' });
 });
 
-app.listen(3000, '0.0.0.0', () => {
-  console.log('API server running on http://0.0.0.0:3000');
+app.listen(3000, () => {
+  console.log('API server running on http://localhost:3000');
 });
 
 // Personalized feed
