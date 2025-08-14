@@ -8,6 +8,7 @@ const fs = require('fs')
 const sharp = require('sharp')
 const Listing = require('../models/listing')
 const router = express.Router()
+const auth = require('../middleware/auth')
 
 // Public feed route
 router.get('/', async (req, res) => {
@@ -34,7 +35,7 @@ const upload = multer({ storage: tempStorage })
 // POST /listings - Upload up to 24 images and save listing
 router.post('/', upload.array('photos', 24), async (req, res) => {
   try {
-    const { description, price } = req.body   // ✅ now capturing price from body
+    const { description, price, location } = req.body  
     const photos = []
 
     for (const file of req.files) {
@@ -68,6 +69,7 @@ router.post('/', upload.array('photos', 24), async (req, res) => {
       altText: desc,
       price: price ? parseFloat(price) : null,   // ✅ handle price or null
       createdAt: new Date(),
+      user: req.userId // associate with logged-in user
     })
 
     await listing.save()
@@ -78,16 +80,19 @@ router.post('/', upload.array('photos', 24), async (req, res) => {
   }
 })
 
-// GET /admin/listings for dashboard
+// ✅ GET /admin/listings for dashboard
 router.get('/admin/listings', async (req, res) => {
   try {
-    const listings = await Listing.find().sort({ createdAt: -1 });
-    res.json(listings);
+    const listings = await Listing.find()
+      .sort({ createdAt: -1 })
+      .populate('user', 'email')  // ✅ bring in user email only
+
+    res.json(listings)
   } catch (err) {
-    console.error('Failed to fetch admin listings:', err);
-    res.status(500).json({ message: 'Server error' });
+    console.error('❌ Failed to fetch admin listings:', err)
+    res.status(500).json({ message: 'Server error' })
   }
-});
+})
 
 // DELETE /admin/listings/:id – delete a listing
 router.delete('/admin/listings/:id', async (req, res) => {

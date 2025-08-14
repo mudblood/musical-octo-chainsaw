@@ -2,7 +2,6 @@
 const mongoose = require('mongoose')
 
 const listingSchema = new mongoose.Schema({
-  userId: mongoose.Schema.Types.ObjectId, // for personalization later
   photos: [String],                      // array of image URLs
   description: String,
   altText: String,
@@ -12,6 +11,10 @@ const listingSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  user: { 
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 })
 
 module.exports = mongoose.model('Listing', listingSchema)
