@@ -50,6 +50,8 @@ console.log('🔗 API base is:', API)
           <th class="p-2">Image</th>
           <th class="p-2">Description</th>
           <th class="p-2">Price</th>
+          <th class="p-2">Location</th>
+          <th class="p-2">User</th>
           <th class="p-2">Created</th>
           <th class="p-2"># Images</th>
           <th class="p-2">Actions</th>
@@ -66,6 +68,8 @@ console.log('🔗 API base is:', API)
           </td>
           <td class="p-2">{{ listing.description }}</td>
           <td class="p-2">${{ listing.price ?? '—' }}</td>
+          <td class="p-2">{{ listing.location || '_' }}</td>
+          <td class="p-2">{{ listing.user?.email || 'Unknown' }}</td>
           <td class="p-2 text-sm text-gray-600">{{ new Date(listing.createdAt).toLocaleString() }}</td>
           <td class="p-2">{{ listing.photos.length }}</td>
           <td class="p-2">
@@ -168,3 +172,11 @@ const deleteListing = async (id) => {
 onMounted(fetchListings)
 onMounted(fetchUsers)
 </script>
+<style scoped>
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+</style>
