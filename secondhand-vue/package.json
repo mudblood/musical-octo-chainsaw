@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "axios": "^1.10.0",
+    "heic2any": "^0.0.4",
     "vue": "^3.5.17",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.5.1",
+    "vue3-touch-events": "^5.0.13"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.0",
